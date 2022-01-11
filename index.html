@@ -4,31 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/styles/style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+     <link rel="stylesheet" href="src/styles/style.css">
     <title>Tibia Info</title>
 </head>
-<body>
+<body class="container-fluid">
     <img src="src/images/citizen.png" alt="citizen-outfit">
-
     <h1>Tibia Info</h1>
-
     <form>
-        <input type="text" data-js="find-character">
-        <button type="submit" data-js="submit-button">Verificar</button>
+        <input type="text" class="form-control" data-js="find-character">
+        <button type="submit" class="btn btn-dark" data-js="submit-button" >Verificar</button>
     </form>
     <br>
-    <div id="main">
-        <span data-js="name"></span><br>
-        <span data-js="sex"></span><br>
-        <span data-js="level"></span><br>
-        <span data-js="vocation"></span><br>
-        <span data-js="status"></span><br>
-        <span data-js="world"></span><br>
-        <span data-js="residence"></span><br>
-        <span data-js="accont-status"></span><br>
-        <span data-js="last-login"></span><br>
-        <span data-js="erro"></span>
-    </div>
+    <span data-js="erro"></span>
 <script src="src/scripts/index.js"></script>
 </body>
 </html>
