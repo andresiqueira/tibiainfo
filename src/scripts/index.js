@@ -1,4 +1,5 @@
 (function () {
+    'use strict';
     const erro = document.querySelector('[data-js="erro"]');
     const findCharacter = document.querySelector('[data-js="find-character"]');
     const submitButton = document.querySelector('[data-js="submit-button"]');
@@ -11,23 +12,21 @@
         .then(data => {
             if ( data.characters.error === "Character does not exist." ) {
                 erro.textContent = 'Personagem não existe';
+                setTimeout(()=> {erro.textContent = ''}, 2000);
             }
-
-            const character = Object.entries(data.characters.data);
-            const characterInfos = [
-                character[0],
-                character[2],
-                character[3],
-                character[4],
-                character[6],
-                character[7],
-                character[9],
-                character[10],
-                formatDate(character[8][1][0].date) 
+            const character = [
+                'Nome: ' + data.characters.data.name,
+                'Level: ' + data.characters.data.level,                
+                'Vocação: ' + data.characters.data.vocation,
+                'Mundo: ' + data.characters.data.world,
+                'Sexo: ' + data.characters.data.sex,
+                'Residência: ' + data.characters.data.residence,
+                'Status: ' + data.characters.data.status,
+                'Status da Conta: ' + data.characters.data.account_status,
+                'Ultimo login: ' + formatDate(data.characters.data.last_login[0].date)
             ]
-
-            createTable(characterInfos)
-        })
+            createTable(character);
+        });
     }
 
     submitButton.addEventListener('click', event => {
@@ -50,7 +49,7 @@
             return inputValue;
         }
         erro.textContent = 'Preencha o campo com caracteres válidos'
-        setTimeout(()=> { erro.textContent = ''}, 2000);
+        setTimeout(()=> {erro.textContent = ''}, 2000);
         return '';
     }
 
@@ -73,13 +72,13 @@
 
     function removeTable () {
         const table = document.querySelector('table');
-        table ? table.remove() : null
+        table ? table.remove() : null;
     }
 
     function formatDate(date) {
         const dateToFormat = new Date(date);
         const formattedDate = dateToFormat.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
-        const formattedTime = dateToFormat.toLocaleTimeString('pt-BR')
+        const formattedTime = dateToFormat.toLocaleTimeString('pt-BR');
         return `${formattedDate}  ${formattedTime}`;
     }
 })();
