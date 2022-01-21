@@ -32,6 +32,7 @@
     submitButton.addEventListener('click', event => {
         event.preventDefault();
         reqAPI(validateInput(findCharacter.value));
+        findCharacter.value = "";
         removeTable();
     });
 

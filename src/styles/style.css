@@ -9,36 +9,44 @@ body {
   border: 0;
   padding: 0;
   margin: 0;
-  height: 80vh;
+  height: 100vh;
+  margin-top: -5%;
 }
-
-form {
+body img {
+  margin-left: -50px;
+}
+body h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+body form {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  width: 100%;
+  min-width: 370px;
+  width: 50%;
 }
-
-input {
+body form input {
   box-sizing: border-box;
   border-radius: 28px;
   border: 1px solid #9c9c9c;
-  display: block;
+  display: box;
   padding: 16px 31px;
   width: 90%;
-  max-width: 370px;
+  min-width: 350px;
+  max-width: 450px;
 }
-
-button {
+body form button {
   margin-top: 10px;
   background-color: #363837;
   border-radius: 28px;
   border: 1px solid #9c9c9c;
   display: block;
   width: 90%;
-  max-width: 370px;
+  min-width: 350px;
+  max-width: 450px;
   cursor: pointer;
   color: #ffffff;
   font-size: 17px;
@@ -46,6 +54,13 @@ button {
   text-decoration: none;
   text-shadow: 0px 1px 0px #050a05;
   box-sizing: border-box;
+}
+body table {
+  padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 370px;
 }
 
 /*# sourceMappingURL=style.css.map */
